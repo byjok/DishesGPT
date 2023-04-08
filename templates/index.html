@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DishesGPT</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <div class="title-container">
+    <h1>DishesGPT</h1>
+    <h2>AI powered generator of menus</h2>
+    </div>
+    <div class="container">
+    <form method="POST" action="{{ url_for('generate') }}">
+        <label for="prompt">Enter a prompt:</label>
+        <br>
+        <input type="text" name="prompt">
+        <br><br>
+        <input type="submit" value="Generate">
+    </form>
+    </div>
+    {% if response %}
+    <div class="response-container">
+        <h2>Response:</h2>
+        <p>{{ response }}</p>
+    </div>
+    {% endif %}
+    <br>
+    <a href="/view_messages">View Message History</a>
+</body>
+</html>

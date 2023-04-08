@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Message History</title>
+  </head>
+  <body>
+    <h1>Message History</h1>
+    {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li>
+        {% if message['role'] == 'user' %}
+        <strong>You:</strong> {{ message['content'] }}
+        {% else %}
+        <strong>Bot:</strong> {{ message['content'] }}
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>No messages found.</p>
+    {% endif %}
+    <br>
+    <a href="/">Return to Chat</a>
+  </body>
+</html>
